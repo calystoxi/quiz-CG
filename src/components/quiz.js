@@ -2,6 +2,7 @@
 import axios from "axios";
 import QuestionCard from "./QuestionCard";
 import useGamepadControls from "./useGamepad";
+import "./quiz.css"; 
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
@@ -61,9 +62,9 @@ export default function Quiz() {
   useGamepadControls(
     () => {
       if (focused !== null && selected === null) {
-        setSelected(focused); // valider le choix
+        setSelected(focused);
       } else if (selected !== null) {
-        nextQuestion(); // passer à la question suivante
+        nextQuestion();
       }
     },
     () => {
@@ -79,10 +80,58 @@ export default function Quiz() {
   );
 
   if (questions.length === 0) return <p>Chargement...</p>;
-  if (finished) return <h2>Score : {score} / {questions.length}</h2>;
+ if (finished) {
+  let message = "";
+  const ratio = score / questions.length;
+
+  if (ratio === 1) {
+    message = "Parfait ! Vous êtes un expert de la culture générale ! 🎉";
+  } else if (ratio > 0.7) {
+    message = "Bravo, très bon score ! Continuez comme ça.";
+  } else if (ratio > 0.4) {
+    message = "Pas mal, mais vous pouvez faire mieux.";
+  } else {
+    message = "C’est un début, n’hésitez pas à rejouer pour progresser !";
+  }
+
+  return (
+    <div className="score-container">
+      <h2>Score : {score} / {questions.length}</h2>
+      <p>{message}</p>
+      <button
+        onClick={() => window.location.reload()}
+        className="retry-button"
+      >
+        Rejouer
+      </button>
+    </div>
+  );
+}
+
 
   return (
     <div style={{ maxWidth: 700, margin: "auto", padding: 20 }}>
+        <div
+  style={{
+    height: 10,
+    width: "100%",
+    backgroundColor: "#e0e0e0",
+    borderRadius: 5,
+    marginBottom: 15,
+    overflow: "hidden",
+  }}
+>
+  <div
+    style={{
+      height: "100%",
+      width: `${((index + 1) / questions.length) * 100}%`,
+      backgroundColor: "#007bff",
+      borderRadius: 5,
+      transition: "width 0.3s ease",
+    }}
+  />
+</div>
+
       <div style={{ marginBottom: 10 }}>
         Question {index + 1} / {questions.length}
       </div>
