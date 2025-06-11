@@ -15,7 +15,7 @@ Une application web de quiz de culture générale développée avec React, Axios
 1. Cloner le projet :
 
    ```bash
-   git clone https://github.com/votre-utilisateur/quiz-culture.git
+   git clone https://github.com/calystoxi/quiz-CG.git
    cd quiz-culture
    ```
 

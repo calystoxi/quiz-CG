@@ -1,0 +1,33 @@
+﻿.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answer-button {
+  text-align: left;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.answer-button:hover:not(:disabled) {
+  background-color: #e0f0ff;
+}
+
+.answer-button.focused {
+  background-color: #e0f0ff;
+}
+
+.answer-button.selected {
+  background-color: #cce5ff;
+}
+
+.answer-button.disabled {
+  color: #aaa;
+  cursor: default;
+}
