@@ -1,5 +1,4 @@
-﻿/* Style général de la carte */
-.card {
+﻿.card {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
@@ -9,13 +8,11 @@
   text-align: center;
 }
 
-/* Titre de la question */
 h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
-/* Container des réponses */
 .answers,
 .options {
   display: flex;
@@ -24,7 +21,6 @@ h2 {
   margin: 20px 0;
 }
 
-/* Bouton de réponse */
 .answer-button {
   text-align: left;
   padding: 12px 20px;
@@ -37,27 +33,23 @@ h2 {
   transition: background-color 0.3s ease;
 }
 
-/* Effet au survol */
 .answer-button:hover:not(:disabled),
 .answer-button.focused {
   background-color: #e0f0ff;
 }
 
-/* Sélection réelle */
 .answer-button.selected {
   background-color: #007bff;
   color: white;
   cursor: default;
 }
 
-/* Réponse désactivée */
 .answer-button.disabled,
 .answer-button:disabled {
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-/* Bouton "Question suivante" */
 .next-button {
   margin-top: 20px;
   padding: 10px 20px;
